@@ -30,7 +30,7 @@ const taskSlice = createSlice({
             if (task.status === true) {
                 state.countCompleted += 1;
             } else
-            state.countCompleted -= 1;
+                state.countCompleted -= 1;
             // state.tasks = state.tasks.filter(task => task.id === action.payload.id)
             // console.log(state.task.status)
             // console.log(action.payload.status)
@@ -68,7 +68,6 @@ const taskSlice = createSlice({
             if (task.status === true) {
                 state.countCompleted -= 1;
             }
-
 
 
         },

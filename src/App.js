@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Tasks} from "./components";
+import {Form, Tasks} from "./components";
 import Countes from "./components/countes/Countes";
 
 const App = () => {
