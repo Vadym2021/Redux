@@ -11,7 +11,7 @@ const Task = ({task: {id, task, status}}) => {
 
     return (
         <div>
-            <input type="checkbox" checked={task.status} onChange={() => dispatch(checkBoxChange({status}))}/>
+            <input type="checkbox" checked={task.status} onChange={() => dispatch(checkBoxChange({id}))}/>
             {/*<div>{task.id}</div>*/}
             <div>{task}</div>
             <div>

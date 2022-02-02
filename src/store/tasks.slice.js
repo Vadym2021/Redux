@@ -1,4 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {Task} from "../components";
+import React from "react";
 
 const initialState = {
     tasks: [],
@@ -20,18 +22,53 @@ const taskSlice = createSlice({
             state.countAll += 1;
         },
         checkBoxChange: (state, action) => {
+
+            const task = state.tasks.find(task => task.id === action.payload.id);
+            task.status = !task.status
+
+
+            if (task.status === true) {
+                state.countCompleted += 1;
+            } else
+            state.countCompleted -= 1;
             // state.tasks = state.tasks.filter(task => task.id === action.payload.id)
             // console.log(state.task.status)
+            // console.log(action.payload.status)
+            //
+            // state.tasks = state.tasks.map(task => task.id === action.payload.id
+            //     ? state.tasks.push({
+            //         id: action.payload.id,
+            //         status: !task.status,
+            //         task: action.payload.task
+            //         }
+            //
+            //         )
+            //
+            //     // task.status = !task.status
+            //     : state.tasks.push({
+            //         id: action.payload.id,
+            //         status: task.status,
+            //         task: action.payload.task
+            //     })
 
-            state.tasks.status = !state.tasks.status;
-            state.countCompleted += 1;
-            console.log(state.task.status)
+            // )
+
+            // state.task.status = !state.tasks.status;
+            // state.countCompleted += 1;
+
+            console.log(state.tasks)
 
 
         },
         deleteTask: (state, action) => {
+            const task = state.tasks.find(task => task.id === action.payload.id);
             state.tasks = state.tasks.filter(task => task.id !== action.payload.id)
             state.countAll -= 1;
+            console.log(task.status)
+            if (task.status === true) {
+                state.countCompleted -= 1;
+            }
+
 
 
         },
